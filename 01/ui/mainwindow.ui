@@ -73,6 +73,16 @@
        <item>
         <widget class="QwtScaleWidget" name="ScaleWidget" native="true"/>
        </item>
+       <item>
+        <widget class="QProgressBar" name="percent">
+         <property name="value">
+          <number>24</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
     </layout>

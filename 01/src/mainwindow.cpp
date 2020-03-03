@@ -50,7 +50,12 @@ MainWindow::MainWindow(QWidget *parent):
     canvas->setPalette( canvasPalette );
     ui->qwtPlot->setCanvas(canvas);
     //ui->ScaleWidget->setColorBarEnabled(true);
-    ui->ScaleWidget->setMargin(20);
+    ui->ScaleWidget->scaleDraw()->setPenWidth(2);
+    //ui->ScaleWidget->scaleDraw()->move(0,0);
+    //ui->ScaleWidget->scaleDraw()->setLength(10);
+    QPainter num;
+    num.drawLine(0,0,10,0);
+    ui->ScaleWidget->drawColorBar(&num,QRect(0,0,2,20));
     QVector<double> time, rate;
     root= new Signal<double>(nullptr,"root",time,rate);
     Signal<double>* stock=new Signal<double>(root,"0",time,rate);
@@ -98,7 +103,7 @@ void MainWindow::plot(const QString &name,const QString &parent){
         curve1->setRenderHint( QwtPlotItem::RenderAntialiased, true );
         curve1->setSamples(data1);
         curve1->attach(ui->qwtPlot);
-
+        ui->percent->setValue(rand() % 100);
         ui->qwtPlot->replot();
     }
 }
