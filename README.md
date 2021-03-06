@@ -1,4 +1,4 @@
-# p_2D_Plot
+# 2D_Plot
 
 
 ![](2d/image/2d.png)
